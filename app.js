@@ -59,6 +59,12 @@ app.post('/what-is-my-Age', (req, res) => {
 
 });
 
+app.get('/', (req, res) => {
+    res.status(400).json({
+        test: "live"
+    })
+});
+
 
 
 
