@@ -1,4 +1,5 @@
 const ProductModule = require("../modules/ProductModules")
+
 const createProduct = async (req, res) =>{
     try{
 const { ProductName, ProductPrice ,Color ,image} = req.body
