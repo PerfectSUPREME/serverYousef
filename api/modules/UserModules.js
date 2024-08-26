@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
 
     },
-    Age:Number
+    cart:[]
 });
 
 const UserModule = mongoose.model('User', UserSchema);
