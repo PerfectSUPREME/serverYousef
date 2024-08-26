@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Routes = require("./api/routes/Routes");
 // const UserModule = require("./api/modules/UserModules");
 const app = express();
 // const Routes=require('./api/routes/Routes')
@@ -35,7 +36,7 @@ app.get('/', (req, res) => {
 
 
 
-// app.use(Routes)
+app.use(Routes)
 
 // export to "./server" to run in your port"
 module.exports = app;

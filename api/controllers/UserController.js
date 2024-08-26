@@ -1,18 +1,17 @@
 const UserModule = require("../modules/UserModules")
 
 // app.post('/CreateUser', 
-const  CreateUser  = async (req, res) => {
+const CreateUser = async (req, res) => {
     try {
-        const { user_name, Password ,phonenumber ,Age} = req.body
+        const { user_name, Password, phonenumber } = req.body
 
         const newUser = await UserModule.create({
-            userName:user_name,
+            userName: user_name,
             "Password": Password,
             "phonenumber": phonenumber,
-            "Age": Age,
         })
         res.status(200).json({
-            user:newUser,
+            user: newUser,
         })
     }
     catch (error) {
@@ -22,13 +21,13 @@ const  CreateUser  = async (req, res) => {
     }
 }
 
- const DeleteUser = async (req, res) => {
+const DeleteUser = async (req, res) => {
     try {
-        const { user_name,} = req.body
+        const { user_name, } = req.body
 
-        const response = await UserModule.deleteOne({userName:user_name})
+        const response = await UserModule.deleteOne({ userName: user_name })
         res.status(200).json({
-            response:response,
+            response: response,
         })
     }
     catch (error) {
@@ -38,11 +37,11 @@ const  CreateUser  = async (req, res) => {
     }
 }
 
-const  findAllUser  = async (req, res) => {
+const findAllUser = async (req, res) => {
     try {
         const allUser = await UserModule.find({})
         res.status(200).json({
-            user:allUser,
+            user: allUser,
         })
     }
     catch (error) {
@@ -51,7 +50,7 @@ const  findAllUser  = async (req, res) => {
         })
     }
 }
- 
+
 const login = async (req, res) => {
     const { userName, Password } = req.body;
     try {
@@ -67,7 +66,7 @@ const login = async (req, res) => {
         res.status(500).json({ success: false, errorMessage: error.message });
     }
 };
-        
+
 module.exports = {
     DeleteUser,
     CreateUser,
