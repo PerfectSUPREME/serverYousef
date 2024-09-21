@@ -5,5 +5,5 @@ ProductRouter.post("/createProduct",createProduct)
 ProductRouter.delete("/DeleteProduct",DeleteProduct)
 ProductRouter.get("/findAllProduct",findAllProduct)
 
-module.exports = ProductRouter
+module.exports = ProductRouter;
 

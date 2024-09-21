@@ -51,6 +51,16 @@ const findAllUser = async (req, res) => {
     }
 }
 
+const updateUser = async (req, res) => {
+    const { userName, UpdatData } = req.body;
+    try {
+        const user = await UserModule.findOneAndUpdate({ userName },UpdatData,{new:true,runValidators:true});
+        res.status(200).json({ success: true, user: user });
+    } catch (error) {
+        res.status(500).json({ success: false, errorMessage: error.message });
+    }
+};
+
 const login = async (req, res) => {
     const { userName, Password } = req.body;
     try {
@@ -67,9 +77,12 @@ const login = async (req, res) => {
     }
 };
 
+
+
 module.exports = {
     DeleteUser,
     CreateUser,
     findAllUser,
     login,
+    updateUser,
 }
